@@ -17,7 +17,9 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 # Copy only the final JAR file from the builder
-COPY --from=builder /app/target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
+# COPY --from=builder /app/target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
+COPY --from=builder /app/target/demo2-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
+
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
